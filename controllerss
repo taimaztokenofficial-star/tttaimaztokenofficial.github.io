@@ -1,0 +1,22 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+const authRoutes = require('./controllerss'); 
+
+dotenv.config();
+
+const app = express();
+app.use(express.json()); 
+
+// اتصال به دیتابیس (MongoDB)
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('✅ MongoDB Connected!'))
+  .catch(err => console.log('❌ MongoDB Connection Error:', err));
+
+// استفاده از مسیرهای کنترلر (مثل ثبت نام و ورود)
+app.use('/api', authRoutes); 
+
+const PORT = 5000; 
+app.listen(PORT, () => {
+  console.log(🚀 Server running on port ${PORT});
+});s
