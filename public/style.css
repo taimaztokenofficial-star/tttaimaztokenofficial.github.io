@@ -1,0 +1,242 @@
+/* تنظیمات عمومی */
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background-color: #0d0d1e; /* مشکی تیره نئونی */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* برای ذرات ستاره‌ای */
+    position: relative;
+    text-align: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh; /* برای شبیه‌سازی موبایل */
+    display: flex;
+    flex-direction: column;
+    background-color: #0d0d1e;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.2); /* افکت نئونی اطراف اپلیکیشن */
+    position: relative;
+    z-index: 10;
+}
+
+/* === افکت ستاره‌ها (Particles) === */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 1px, rgba(255, 255, 255, 0.1) 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+    animation: stars-move 60s linear infinite;
+    z-index: 1;
+}
+
+@keyframes stars-move {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 1000px 1000px;
+    }
+}
+
+/* === Header و Title === */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+    z-index: 20;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.app-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: auto; 
+}
+
+.rocket {
+    font-size: 24px;
+}
+
+.app-title {
+    font-size: 20px;
+    color: #00ffff; /* رنگ فیروزه‌ای نئونی برای عنوان */
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    margin: 0;
+}
+
+/* === Login Box و Register Box === */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 20;
+    /* این امکان را می‌دهد تا هم Login Box و هم Register Box بتوانند در main-content قرار بگیرند */
+    position: relative;
+}
+
+.login-box, .register-box {
+    background-color: rgba(30, 30, 50, 0.6);
+    padding: 30px 20px;
+    border-radius: 20px;
+    border: 2px solid #00f2ff; /* حاشیه نئونی فیروزه‌ای */
+    box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
+    width: 100%;
+    max-width: 300px;
+    /* برای اینکه وقتی یکی پنهان می‌شود، دیگری در مرکز قرار گیرد */
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-box h2, .register-box h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+/* === Input Fields (ظاهر دکمه‌ای) === */
+.input-field {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff; /* پس‌زمینه سفید برای فیلدهای ورودی */
+    color: #333;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s;
+}
+
+/* شبیه‌سازی ظاهر دکمه‌ای با Placeholder */
+.button-style::before {
+    content: attr(data-placeholder);
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.button-style:focus-within::before {
+    /* وقتی کاربر کلیک می‌کند Placeholder مخفی می‌شود */
+    opacity: 0;
+}
+
+/* === Done Button (طلایی/زرد) === */
+.done-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ffc800, #ff8c00); /* طلایی/نارنجی */
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(255, 170, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.done-button:hover {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    transform: translateY(-2px);
+}
+
+/* === Forgot Password Link و Switch Mode (سوئیچ بین فرم‌ها) === */
+.forgot-password {
+    display: block;
+    margin-top: 15px;
+    color: #00f2ff; /* نئونی */
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #fff;
+}
+
+.switch-mode {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+.switch-mode a {
+    color: #ffc800; /* لینک به رنگ طلایی/زرد دکمه Done */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.switch-mode a:hover {
+    color: #fff;
+}
+
+/* === کلاس ضروری برای پنهان کردن فرم‌ها با جاوااسکریپت (منطق سوئیچ) === */
+.hidden {
+    display: none !important;
+}
+
+/* === Footer Navigation Bar === */
+.app-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 242, 255, 0.2);
+    background-color: rgba(13, 13, 30, 0.8);
+    z-index: 20;
+    position: sticky;
+    bottom: 0;
+}
+
+.footer-icon {
+    font-size: 24px;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    flex-grow: 1; 
+    text-align: center;
+}
+
+.footer-icon.center {
+    flex-grow: 2; 
+}

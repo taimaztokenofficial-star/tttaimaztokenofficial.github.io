@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaimaZ TokeN DApp - Authentication</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header class="app-header">
+            <button class="menu-button">☰</button>
+            
+            <div class="app-title-container">
+                <span class="rocket">🚀</span>
+                <h1 class="app-title">TaimaZ TokeN DApp</h1>
+            </div>
+            
+        </header>
+        
+        <main class="main-content">
+            <div class="login-box">
+                <h2>ورود</h2>
+                
+                <form id="loginForm">
+                    <div class="input-field button-style" data-placeholder="ایمیل">
+                        <input type="text" id="username" required aria-label="ایمیل"> 
+                    </div>
+
+                    <div class="input-field button-style" data-placeholder="رمز عبور">
+                        <input type="password" id="password" required aria-label="رمز عبور">
+                    </div>
+
+                    <button type="submit" class="done-button">ورود</button>
+                </form>
+
+                <a href="#" class="forgot-password">بازیابی رمز ورود؟</a>
+                
+                <p class="switch-mode">
+                    حساب کاربری ندارید؟ <a href="#" id="switchToRegister">ثبت‌نام کنید</a>
+                </p>
+            </div>
+
+            <div class="register-box hidden" id="registerBox">
+                <h2>ثبت‌نام</h2>
+                <form id="registerForm">
+                    <div class="input-field button-style" data-placeholder="ایمیل">
+                        <input type="email" id="regEmail" required aria-label="ایمیل">
+                    </div>
+                    <div class="input-field button-style" data-placeholder="رمز عبور">
+                        <input type="password" id="regPassword" required aria-label="رمز عبور">
+                    </div>
+                    <div class="input-field button-style" data-placeholder="تکرار رمز عبور">
+                        <input type="password" id="regConfirmPassword" required aria-label="تأیید رمز عبور">
+                    </div>
+
+                    <button type="submit" class="done-button">ثبت‌نام</button>
+                </form>
+                
+                <p class="switch-mode">
+                    قبلاً حساب دارید؟ <a href="#" id="switchToLogin">ورود کنید</a>
+                </p>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <div class="footer-icon left">⚖️</div>
+            <div class="footer-icon center">🫆</div>
+            <div class="footer-icon right">💱</div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
