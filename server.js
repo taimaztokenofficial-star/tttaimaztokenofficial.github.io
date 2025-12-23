@@ -20,7 +20,7 @@ mongoose.connect(mongoURI)
 
 // --- بخش اصلاح شده برای اجرای داشبورد ---
 // این خط تمام درخواست‌ها را به فایل گرافیکی اصلی هدایت می‌کند
-app.get('/*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
